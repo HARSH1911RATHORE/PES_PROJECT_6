@@ -14,10 +14,12 @@ You should use modular design for your code – drivers in one module, applicati
 Program 1 – Lookup Table Creation and Validation
 Calculate and create a lookup table to represent the values in a sine wave that runs from 1V to 3V. Period from peak to peak should be 5 seconds with a .1 second step. In code, mathematically determine the voltage values at each .1 second step. Convert the voltages to DAC register values representing the voltages at each .1 second step. Store the DAC register values in a buffer of sufficient size to hold all the values for a single peak to peak cycle.
 Create a test case that uses a FreeRTOS Software Timer Callback function to apply the values from the lookup table to DAC0_OUT (pin J10-11) every .1 second, repeating from the beginning of the table once the last value is applied. Toggle a Blue LED on and off for each visit to the timer callback.
-PES Project 6 Fall 2019 Bruce Montgomery
-V1.0 11/18/19 Page 2
+
+
 Confirm the shape of the output on a scope; voltages should be 1V to 3V, peak to peak period should be 5 seconds, signal should be a clear sine wave. Capture a scope image for submission (label Program 1).
 When run in debug, program steps and values should be echoed to the console by logger statements.
+
+
 Program 2 – Capture the output from DAC0 on ADC0 (pin J10-1, ADC0_SE8)
 Initialize this program by using the code from Program 1 to create a lookup table for use by the DAC FreeRTOS task, putting the register values that define the sine wave into a DAC value buffer of appropriate size.
 Create and start the following FreeRTOS tasks. Note that you will need to determine appropriate task priorities and scheduling, as well as any need for mutex or semaphore use for communication or resource sharing, in order for the program to meet its performance goals.
