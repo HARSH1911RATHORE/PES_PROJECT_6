@@ -5,7 +5,7 @@
 # Problem Statement 
 
 
-# Introduction
+## Introduction
 
 -In this final PES project, you will generate a sine wave signal on the KL25Z’s DAC, capture the signal with the KL25Z’s ADC, transfer collected data buffers via DMA to another data buffer, and perform basic DSP analysis of the signal. You will exercise lookup tables, buffers, ADC, DAC, DMA, math functions, and basic FreeRTOS task management. You will also use an oscilloscope or logic analyzer to verify output.
 
@@ -71,7 +71,7 @@ When run in debug, program steps and values should be echoed to the console by l
 
 ## Installation and Execution Notes
  1. **LED INIT and MUX** - We need to initialize the GPIO of the LEDs and directions of PTB18(Red LED) ,PTB19(Green LED) and PTBD1(Blue LED)
- 2. **Set the logger Mode flags** -There are global Flags for logger, Set the debug flag to 1 to run it in the debug mode and the unit test flag to 1 to run the unit tests.
+ 2. **Set the logger Mode flags** -There are global Flags for logger, Set the debug flag to 1 to run it in the debug mode and various global flags for printing the report of the dma, transfer_counter, length of queue.
  3. **Logger messagez** - The logger messages are printed using the uart driver functions
  4. **Defines** - #defines and #if are used at various places to run a particular mode and to print messages for a particular state.
  5. **DMA**-DMA is performed by using 2 buffers, source and destination addresses. 
