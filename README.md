@@ -12,7 +12,7 @@
 -This project has two deliverable programs, one for the confirmation of the creation of sine wave data for the DAC and the second for full functionality for reading, transferring, and analysis of that data.
 The programs should be able to be demonstrated in debug and normal modes. In debug mode, comments on program steps should be provided along with any values needed to verify proper operations. In normal mode, much less verbose logging should be used.
 
-General
+**General**
 There are details for this project that are left to you to decide, for instance, the buffer structure for the ADC data capture. Document the design decisions you make to meet the requirements of the project in the Observations section of the project README.
 
 In the event of ANY error condition in any part of the project, set the LED to steady red.
@@ -34,7 +34,7 @@ Confirm the shape of the output on a scope; voltages should be 1V to 3V, peak to
 When run in debug, program steps and values should be echoed to the console by logger statements.
 
 
-# Program 2 – Capture the output from DAC0 on ADC0 (pin J10-1, ADC0_SE8)
+## Program 2 – Capture the output from DAC0 on ADC0 (pin J10-1, ADC0_SE8)
 
 Initialize this program by using the code from Program 1 to create a lookup table for use by the DAC FreeRTOS task, putting the register values that define the sine wave into a DAC value buffer of appropriate size.
 
@@ -50,3 +50,30 @@ Confirm the shape of the ADC values on a scope; voltages should be very nearly 1
 
 When run in debug, program steps and values should be echoed to the console by logger statements.
 
+## Description of Repository contents
+
+ 1. **PES_PROJECT_6.c**   --Contains the main function , UART, Functions and Initializations
+ 2. **Timer.c**  --Contains the log time stamps  
+ 3. **logger.c**   --Contains the Logger functions 
+ 4. **logger.h** -- contains logger enum declarations
+ 5. **queue.c** --Contains all functions needed to implement circular buffer
+ 6. **queue.h** --Contains the declarations for circular buffer code
+ 7. **LED.c** --Contains all the functions and initialisation requried for the LED to function
+ 8. **LED.h** --Contains all declarations for led.c
+
+## OBSERVATIONS
+
+ 1. **FREE rtos task functions** - The freertos task create, suspend, delay functions were performed later as the timer calling function used to print values of lookup table into the buffer. The timer calling function was disabled after start, when it is called to feed values of DAC from lokkup table.
+ 2. **Logger** - Implementing the logger function to print the status of test, debug and status mode turned out to be very time consuming as all the functions messages were called by a single logger function with the use of loggers for different states. Also had to define #if for each finction to print the messages of them in different modes as needed by the user.
+ 3. **DMA** - The DMA operation when performed did not shift values of ADC into the ADC buffer. However, by hardcoding values, the buffer DMA operation was performed. Later realised that Dma start functions were not being used when accepting the adc values into the buffer.
+
+
+
+## Installation and Execution Notes
+ 1. **LED INIT and MUX** - We need to initialize the GPIO of the LEDs and directions of PTB18(Red LED) ,PTB19(Green LED) and PTBD1(Blue LED)
+ 2. **Set the logger Mode flags** -There are global Flags for logger, Set the debug flag to 1 to run it in the debug mode and the unit test flag to 1 to run the unit tests.
+ 3. **Logger messagez** - The logger messages are printed using the uart driver functions
+ 4. **Defines** - #defines and #if are used at various places to run a particular mode and to print messages for a particular state.
+ 5. **DMA**-DMA is performed by using 2 buffers, source and destination addresses. 
+ 
+ **REFERENCE=sdk_free_rtos_examples**
