@@ -1,6 +1,8 @@
 # PES_PROJECT_6
 PES Project 6 – FreeRTOS, ADC, DAC, DMA, DSP - Total 100 Points (plus 10 bonus points)
-Introduction
+
+##Introduction
+
 In this final PES project, you will generate a sine wave signal on the KL25Z’s DAC, capture the signal with the KL25Z’s ADC, transfer collected data buffers via DMA to another data buffer, and perform basic DSP analysis of the signal. You will exercise lookup tables, buffers, ADC, DAC, DMA, math functions, and basic FreeRTOS task management. You will also use an oscilloscope or logic analyzer to verify output.
 This project has two deliverable programs, one for the confirmation of the creation of sine wave data for the DAC and the second for full functionality for reading, transferring, and analysis of that data.
 The programs should be able to be demonstrated in debug and normal modes. In debug mode, comments on program steps should be provided along with any values needed to verify proper operations. In normal mode, much less verbose logging should be used.
@@ -21,6 +23,7 @@ When run in debug, program steps and values should be echoed to the console by l
 
 
 Program 2 – Capture the output from DAC0 on ADC0 (pin J10-1, ADC0_SE8)
+
 Initialize this program by using the code from Program 1 to create a lookup table for use by the DAC FreeRTOS task, putting the register values that define the sine wave into a DAC value buffer of appropriate size.
 Create and start the following FreeRTOS tasks. Note that you will need to determine appropriate task priorities and scheduling, as well as any need for mutex or semaphore use for communication or resource sharing, in order for the program to meet its performance goals.
 Create a FreeRTOS Task to periodically (every .1 seconds) change the value on DAC0 from the lookup table buffer of DAC register values. Toggle a Green LED on and off for each DAC write (if the LED is available for use).
