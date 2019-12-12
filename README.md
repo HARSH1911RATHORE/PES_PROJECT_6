@@ -60,6 +60,8 @@ When run in debug, program steps and values should be echoed to the console by l
  6. **queue.h** --Contains the declarations for circular buffer code
  7. **LED.c** --Contains all the functions and initialisation requried for the LED to function
  8. **LED.h** --Contains all declarations for led.c
+ 9. **dma.c** -- Containsc all functions and interrupts for dma
+ 10. **dma.h** -- Contains all header files and variables defined for dma
 
 ## OBSERVATIONS
 
