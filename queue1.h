@@ -10,7 +10,7 @@
 
 
 
-#define Q_MAX_SIZE (4)
+#define Q_MAX_SIZE (64)
 
 
 
@@ -22,7 +22,7 @@ typedef struct {
 
   unsigned int Size; // Number of elements in use
 
-  uint8_t Data[Q_MAX_SIZE];
+  uint32_t Data[Q_MAX_SIZE];
   //float Data[Q_MAX_SIZE];
 
 } volatile Q_T;
@@ -37,9 +37,9 @@ extern int Q_Full(Q_T * q);
 
 extern int Q_Size(Q_T * q);
 
-extern int Q_Enqueue(Q_T * q, uint8_t d);
+extern int Q_Enqueue(Q_T * q, uint32_t d);
 
-extern uint8_t Q_Dequeue(Q_T * q);
+extern uint32_t Q_Dequeue(Q_T * q);
 
 extern void Q_Init(Q_T * q);
 

@@ -8,48 +8,50 @@
 #define true 1                   //boolean
 #define false 0
 
-enum log_level{
-	test,
-	status,
-	debug                  			//enum for various test modes
-};
-enum function_type{
+extern enum log_level
+{
 
-	receiver_available,         //enum defined for various function call print messages
-	receive_char,
-	receiver_poll,
-	transmitter_available,
-	transmitter_char,
-	transmitter_poll,
-	transmitter_int,
-	receiver_int,
-	uart_interrupt,
-	uart_poll,
-	uart_init,
-	uart_application,
-	uart_echo,
-	buffer_full,
-	buffer_empty,
-	buffer_valid,
-	buffer_init,
-	buffer_destroy,
-	buffer_add,
-	buffer_remove,
-	all
-};
+    status,
+    debug                  			//enum for various test modes
+} levels;
+extern enum function_type
+{
+    adc_register_value,
+    destination_buffer_print,
+    dma_destination_add,
+    report,
+    clean_indentations,
+    buffer_full,
+    buffer_empty,
+    buffer_valid,
+    dma_call,
+    minu,
+    seco,
+    milivalue,
+    report_gen,
+    report_over,
+    timers,
+	post_test,
+    buffer_add,
+    buffer_remove,
+    std,
+    all
+} functions;
 
-void logger(enum function_type functions,enum log_level level,uint8_t message);
-void log_uart_mode_int(enum function_type functions);
-void log_uart_mode_poll(enum function_type functions);
-void log_uart_init(enum function_type functions);
-void log_uart_echo(enum function_type functions);
-void log_uart_application(enum function_type functions);
-void log_buffer_full(enum function_type functions,enum log_level level);
-void log_buffer_empty(enum function_type functions,enum log_level level);
-void log_buffer_valid(enum function_type functions,enum log_level level,uint8_t message);
-void log_buffer_init(enum function_type functions,enum log_level level);
-void log_buffer_add(enum function_type functions,enum log_level level,uint8_t message);
-void log_buffer_remove(enum function_type functions,enum log_level level,uint8_t message);
-void log_buffer_destory(enum function_type functions,enum log_level level);
+
+void log_adc(enum function_type functions,enum log_level level,uint16_t message);
+void logger(enum function_type functions,enum log_level level,uint16_t message);
+void log_post_test(enum function_type functions,enum log_level level,uint16_t message);
+void log_report(enum function_type functions,enum log_level level,uint16_t message);
+void log_large(enum function_type functions,enum log_level level,uint16_t message);
+void log_small(enum function_type functions,enum log_level level,uint16_t message);
+void log_mean(enum function_type functions,enum log_level level,uint16_t message);
+void log_sd(enum function_type functions,enum log_level level,uint16_t message);
+void log_timer_min(enum function_type functions,enum log_level level,uint16_t message);
+void log_timer_seconds(enum function_type functions,enum log_level level,uint16_t message);
+void log_timer_mili(enum function_type functions,enum log_level level,uint16_t message);
+
+
+
 
 #endif

@@ -1,4 +1,4 @@
-#include "queue.h"
+#include "queue1.h"
 
 
 
@@ -44,7 +44,7 @@ int Q_Size(Q_T * q) {
 
 
 
-int Q_Enqueue(Q_T * q, uint8_t d) {
+int Q_Enqueue(Q_T * q, uint32_t d) {
 
 	uint32_t masking_state;
 
@@ -88,11 +88,11 @@ int Q_Enqueue(Q_T * q, uint8_t d) {
 
 
 
-uint8_t Q_Dequeue(Q_T * q) {
+uint32_t Q_Dequeue(Q_T * q) {
 
 	uint32_t masking_state;
 
-  uint8_t t=0;
+  uint32_t t=0;
 
   // Check to see if queue is empty before dequeueing
 
@@ -129,4 +129,7 @@ uint8_t Q_Dequeue(Q_T * q) {
   return t;
 
 }
+
+
+
 
