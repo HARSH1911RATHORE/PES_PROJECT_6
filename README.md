@@ -62,7 +62,7 @@ When run in debug, program steps and values should be echoed to the console by l
  8. **LED.h** --Contains all declarations for led.c
  9. **dma.c** -- Containsc all functions and interrupts for dma
  10. **dma.h** -- Contains all header files and variables defined for dma
-
+ 11. **TIMER_CALLBACK_FUNCTION.c** --contains the adc and dac values to be loaded using timer callback interrupt
 ## OBSERVATIONS
 
  1. **FREE rtos task functions** - The freertos task create, suspend, delay functions were performed later as the timer calling function used to print values of lookup table into the buffer. The timer calling function was disabled after start, when it is called to feed values of DAC from lokkup table.
